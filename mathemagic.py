@@ -47,7 +47,7 @@
 # 12+5+1+4+5+18+19+8+9+16 = 97%  NO...!!!
 # Ternyata apa yang membuat menjadi 100% adalah :
 # Coba lihat yang ini...
-# S+E+D+E+K+A+H+J+A+R+I+A+H 19+5+4+5+11+1+8+10+1+18+9+1+8 = 100% 👍
+# S+E+D+E+K+A+H+J+A+R+I+A+H 19+5+4+5+11+1+8+10+1+18+9+1+8 = 100%
 # ( nilai saham akhirat kita. )
 # KEBETULAN atau TIDAK...?  tapi itulah MATEMATIKA
 # Semangat menjemput rezeki  , jangan lupa SEDEKAH yaaa...
