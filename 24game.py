@@ -1,6 +1,6 @@
 import random
 import re
-import sys
+# import sys
 
 def validateisnumber(inputt) :
   try:
@@ -17,7 +17,9 @@ def validatelist(answertoparse) :
 
 def validatemap(map1, map2) :
   c = set(map1) - set(map2)
-  if (len(c) == 0) :
+  d = set(map2) - set(map1)
+  print c, d
+  if (len(c) == len(d) == 0) :
     flag = True
   else :
     flag = False
@@ -31,35 +33,42 @@ def validateanswer(countthis) :
     flag = False
   return flag
 
-quest = []
-bnumb = ['1st', '2nd', '3rd', '4th']
-for x in range (4) :
-  a = random.randint(1, 10)  # Integer from 1 to 10, endpoints included
-  quest.append(a)
-  index = [x+1, bnumb[x]]
-  print bnumb[x], 'card :', a
-# print quest
+def random_question() :
+  quest = []
+  bnumb = ['1st', '2nd', '3rd', '4th']
+  for x in range (4) :
+    a = random.randint(1, 10)  # Integer from 1 to 10, endpoints included
+    quest.append(a)
+    index = [x+1, bnumb[x]]
+    print bnumb[x], 'card :', a
+  return quest
+
+quest = random_question()
 
 loop = True
 while loop :
   answer = raw_input('count? ')
-  if answer == 'skip' :
-    sys.exit();
-  isnumber = validateisnumber(answer)
-  if isnumber :
-    isfour = validatelist(answer)
-    if (len(isfour) == 4) :
-      isvalid = validatemap(isfour, quest)
-      if isvalid :
-        is24 = validateanswer(answer)
-        if is24 :
-          print 'correct answer'
-          loop = False
-        else :
-          print 'incorrect answer'
-      else :
-        print 'invalid number'
-    else :
-      print 'should be 4 numbers'
+  if answer == 'end' :
+    # sys.exit();
+    loop = False
+  elif answer == '' :
+    quest = random_question()
   else :
-    print 'data error'
+    isnumber = validateisnumber(answer)
+    if isnumber :
+      isfour = validatelist(answer)
+      if (len(isfour) == 4) :
+        isvalid = validatemap(isfour, quest)
+        if isvalid :
+          is24 = validateanswer(answer)
+          if is24 :
+            print 'correct answer'
+            loop = False
+          else :
+            print 'incorrect answer'
+        else :
+          print 'invalid number'
+      else :
+        print 'should be 4 numbers'
+    else :
+      print 'data error'
